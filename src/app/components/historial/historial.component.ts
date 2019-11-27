@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpService } from 'src/app/services/http.service';
 import { Busqueda } from 'src/app/classes/busqueda.class';
 import { Router } from '@angular/router';
@@ -10,7 +10,10 @@ import { Router } from '@angular/router';
 })
 export class HistorialComponent implements OnInit {
 
-  historial:Busqueda[]
+  historial:Busqueda[] = []
+  eliminar:boolean
+
+  @ViewChild('links',{static:true}) links
 
   constructor(
     private httpService:HttpService,
@@ -18,20 +21,35 @@ export class HistorialComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    console.log(this.links)
     this.getBusquedas()
   }
 
   getBusquedas() {
     this.httpService.getBusquedas().subscribe( busquedas => {
 
-      this.historial = busquedas.content
+      let index = 0;
+      let interval = setInterval(() => {
+        if (index < busquedas.content.length) {
+          this.historial.push(busquedas.content[index])
+          index++
+        }else {
+          clearInterval(interval)
+        }
+      },50)
 
     })
   }
 
-  deleteBusqueda(id:number) {
+  deleteBusqueda(id:number, index:number) {
     this.httpService.deleteBusqueda(id).subscribe( data => {
-      this.getBusquedas()
+      if (!data.ok) {
+        return
+      }
+      this.links.nativeElement.children[index].classList.add('eliminar')
+      setTimeout(() => {
+        this.historial.splice(index,1)
+      }, 500);
     })
   }
 

@@ -3,10 +3,23 @@
         <img class="image" [src]="tweet.user.image" [alt]="tweet.user.name">
     </div>
     <header class="card-header">
-        <h2 class="card-title">{{tweet.user.name}}</h2>
-        <p class="card-date">{{tweet.fecha | date}}</p>
+        <h2 class="card-title">
+            <a class="user-link" target="_blank" [href]="tweet.user.url">
+                {{tweet.user.name}} - <span class="subtitle">@{{tweet.user.screenName}}</span>
+            </a>
+        </h2>
+        <p class="card-date">{{tweet.fecha | date:'shortTime'}}</p>
     </header>
     <section class="card-content">
-        <p>{{tweet.texto}}</p>
+        <p class="tweet-text">{{tweet.texto}}</p>
+        <div class="actions">
+            <p class="icon-container">
+                <img class="icons" src="./assets/img/favorite.png" alt="icono de favoritos"> {{tweet.cantidadFavoritos}}
+            </p>
+            <p class="icon-container">
+                <img class="icons" src="./assets/img/retweet.png" alt="icono de retweet"> {{tweet.cantidadRetweet}}
+            </p>
+            <a [href]="tweet.url" class="enlace" target="_blank">ir al Tweet</a>
+        </div>
     </section>
 </article>

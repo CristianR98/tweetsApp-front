@@ -3,11 +3,12 @@
     justify-content: space-between;
     align-items: center;
     background-color: hsl(200, 65%, 91%);
-    padding: .7rem;
+    padding: 1rem .5rem;
+    color: white;
 }
 
 .main-title {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 }
 
 .link-container {
@@ -16,9 +17,25 @@
 
 .links {
     font-size: .9rem;
-    margin-right: .5rem;
+    margin-right: .7rem;
 }
 
 .active {
     font-weight: bold;
+}
+
+@media screen and (min-width: 480px) {
+    .main-title {
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    .links {
+        font-size: 1.2rem;
+        margin-right: 1rem;
+    }
 }

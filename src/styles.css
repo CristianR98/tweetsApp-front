@@ -14,6 +14,14 @@ li {
     list-style: none;
 }
 
+a {
+    text-decoration: none;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
 .desde-la-derecha {
     animation: desde-la-derecha .8s forwards;
 }
@@ -41,5 +49,20 @@ li {
     to {
         opacity: 1;
         transform: translateY(0%);
+    }
+}
+
+.eliminar {
+    animation: eliminar .5s forwards;
+}
+
+@keyframes eliminar {
+    from {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
     }
 }

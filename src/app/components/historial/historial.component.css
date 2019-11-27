@@ -8,18 +8,16 @@
 }
 
 .list-item {
-    padding: .5rem;
     font-weight: bold;
-    border-bottom: 1px dotted hsl(200, 50%, 60%);
+    border-bottom: 1px solid hsl(200, 50%, 60%);
     color: hsl(200, 50%, 60%);
     display: flex;
-    justify-content: space-between;
     align-items: center;
     transition: .3s;
 }
 
 .list-item:first-child {
-    border-top: 1px dotted hsl(200, 50%, 60%);
+    border-top: 1px solid hsl(200, 50%, 60%);
 }
 
 .list-item:hover {
@@ -31,8 +29,11 @@
     color: white;
 }
 
-.options {
+.info {
+    width: 100%;
+    padding: .7rem;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -49,6 +50,33 @@
     z-index: 10;
     background-color: hsl(0, 73%, 47%);
     padding: .2rem .4rem;
+    margin-right: .7rem;
     border-radius: 50%;
     line-height: 1.1rem;
+}
+
+@media screen and (min-width: 480px) {
+    .title {
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+    }
+    .info {
+        font-size: 1.2rem;
+    }
+    .history-date {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .title {
+        font-size: 1.5rem;
+    }
+    .info {
+        font-size: 1.4rem;
+    }
+    .history-date {
+        font-size: 1.2rem;
+    }
+    .history-delete {}
 }

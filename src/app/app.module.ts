@@ -9,7 +9,8 @@ import { BusquedaComponent } from './components/busqueda/busqueda.component';
 import { APP_ROUTING } from './app.routes';
 import { CardComponent } from './components/card/card.component';
 import { HttpService } from './services/http.service';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms'
     NavbarComponent,
     HistorialComponent,
     BusquedaComponent,
-    CardComponent
+    CardComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
