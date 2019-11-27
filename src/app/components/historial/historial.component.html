@@ -1,0 +1,12 @@
+<article class="container">
+    <h2 class="title">Busquedas recientes:</h2>
+    <ul class="list-history">
+        <li *ngFor="let busqueda of historial" class="list-item desde-abajo">
+            <p class="history-text" (click)="irABusqueda(busqueda.termino)">{{busqueda.termino}}</p>
+            <div class="options">
+                <span class="history-date">{{busqueda.fecha | date}}</span>
+                <span class="history-delete" (click)="deleteBusqueda(busqueda.id)">X</span>
+            </div>
+        </li>
+    </ul>
+</article>

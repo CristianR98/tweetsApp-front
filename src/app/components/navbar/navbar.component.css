@@ -1,0 +1,24 @@
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: hsl(200, 65%, 91%);
+    padding: .7rem;
+}
+
+.main-title {
+    font-size: 1.4rem;
+}
+
+.link-container {
+    display: flex;
+}
+
+.links {
+    font-size: .9rem;
+    margin-right: .5rem;
+}
+
+.active {
+    font-weight: bold;
+}

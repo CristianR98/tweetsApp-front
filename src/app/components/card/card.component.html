@@ -1,0 +1,12 @@
+<article class="card desde-la-derecha">
+    <div class="card-image">
+        <img class="image" [src]="tweet.user.image" [alt]="tweet.user.name">
+    </div>
+    <header class="card-header">
+        <h2 class="card-title">{{tweet.user.name}}</h2>
+        <p class="card-date">{{tweet.fecha | date}}</p>
+    </header>
+    <section class="card-content">
+        <p>{{tweet.texto}}</p>
+    </section>
+</article>

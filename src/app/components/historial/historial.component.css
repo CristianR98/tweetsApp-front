@@ -1,0 +1,54 @@
+.container {
+    padding: 1rem;
+}
+
+.title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.list-item {
+    padding: .5rem;
+    font-weight: bold;
+    border-bottom: 1px dotted hsl(200, 50%, 60%);
+    color: hsl(200, 50%, 60%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .3s;
+}
+
+.list-item:first-child {
+    border-top: 1px dotted hsl(200, 50%, 60%);
+}
+
+.list-item:hover {
+    background-color: hsl(200, 50%, 60%);
+    color: white;
+}
+
+.list-item:hover .history-date {
+    color: white;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+}
+
+.history-date {
+    color: hsl(200, 50%, 60%);
+    font-weight: normal;
+    font-size: .8rem;
+    margin-right: .5rem;
+}
+
+.history-delete {
+    color: white;
+    position: relative;
+    z-index: 10;
+    background-color: hsl(0, 73%, 47%);
+    padding: .2rem .4rem;
+    border-radius: 50%;
+    line-height: 1.1rem;
+}
