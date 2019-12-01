@@ -8,4 +8,4 @@ const ROUTES:Routes = [
     { path: '**', pathMatch: 'full', redirectTo: 'busqueda' }
 ]
 
-export const APP_ROUTING = RouterModule.forRoot(ROUTES)
+export const APP_ROUTING = RouterModule.forRoot(ROUTES,{useHash:true})
