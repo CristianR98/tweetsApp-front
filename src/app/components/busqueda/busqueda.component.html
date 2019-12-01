@@ -1,10 +1,12 @@
 <div class="container">
-    <input class="busqueda" type=text placeholder="Buscar en Twitter" #busqueda (keyup.enter)="buscar(busqueda.value)" [formControl]=termino>
+    <input class="busqueda" type=text placeholder="Buscar en Twitter" #busqueda (keyup.enter)="buscar()" [formControl]=termino>
     <div *ngIf="termino.getError('required')" class="termino-required">
         Tienes que ingresar lo que quieras buscar.
     </div>
     <app-card *ngFor="let tweet of tweets" [tweet]="tweet"></app-card>
-    <app-loader *ngIf="cargando && !animacion">Cargando...</app-loader>
-    <p (click)="verMas()" *ngIf="!tweets && !cargando">Aqui se mostraran los resultados!</p>
+    <app-loader *ngIf="cargando && !animacion"></app-loader>
+    <div *ngIf="message" class="termino-required">
+        {{message}}
+    </div>
     <button (click)="verMas()" *ngIf="tweets && !cargando && !animacion" class="btn-ver-mas cursor">Mas Tweets!</button>
 </div>

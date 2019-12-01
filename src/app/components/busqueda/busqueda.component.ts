@@ -13,8 +13,10 @@ export class BusquedaComponent implements OnInit {
 
   tweets:Tweet[]
 
-  cargando:boolean = true
-  animacion:boolean = false;
+  cargando:boolean
+  animacion:boolean
+
+  message:string
 
   termino = new FormControl('',Validators.required)
 
@@ -25,26 +27,41 @@ export class BusquedaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.message = null
+    this.cargando = true
+    this.animacion = false
     this.activatedRouter.queryParamMap.subscribe( (query:any) => {
-      
       if (!query.params.termino) {
+
         let termino = localStorage.getItem('ultimaBusqueda') || ''
+
         if (termino == '') {
           this.cargando = false
           return
         }
+
         this.termino.setValue(termino)
         this.buscar()
         return
+
       }
 
       this.termino.setValue(query.params.termino)
       
       if (this.termino.value !== '') {
+
         this.tweets = null
     
         this.httpService.getInitialTweets(this.termino.value).subscribe(resp => {
-          
+          console.log(resp)
+          if (!resp.ok) {
+
+            this.cargando = false
+            this.message = resp.message
+            return
+
+          }
+
           this.tweets = []
           this.agregarNewTweets(resp.content)
     
@@ -74,6 +91,11 @@ export class BusquedaComponent implements OnInit {
     this.cargando = true
     this.httpService.getMasTweets().subscribe( resp => {
     
+      if (!resp.ok) {
+        this.message = resp.message
+        return
+      }
+
       this.agregarNewTweets(resp.content)
 
     })

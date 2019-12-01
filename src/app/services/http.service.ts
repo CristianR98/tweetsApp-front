@@ -39,6 +39,9 @@ export class HttpService {
     let url:string = this.url + `busqueda?termino=${termino}&cantidad=${this.index}`
     return this.http.get<Respuesta<Tweet[]>>(url).pipe(
       map(resp => {
+        if (!resp.ok) {
+          return resp
+        }
         for (let i = 0; i < resp.content.length; i++) {
           let fechas = resp.content[i].fecha.split('ART')
           resp.content[i].fecha = new Date(fechas[0] + fechas[1])
